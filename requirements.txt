@@ -1,0 +1,10 @@
+langdetect==1.0.9
+lingua-language-detector==2.0.2
+langid
+# protobuf-compiler
+# gcld3
+stanza
+fasttext-langdetect
+# fastspell
+simplemma
+py-googletrans==4.0.0
