@@ -8,3 +8,10 @@ fasttext-langdetect
 # fastspell
 simplemma
 py-googletrans==4.0.0
+transformers
+torch
+pandas
+numpy
+boto3
+deepl
+sentencepiece
