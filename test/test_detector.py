@@ -1,6 +1,6 @@
 import unittest
 
-from xtranslator.detectors import simplemma_detector, langid_detector, fasttext_detector, google_detector, langdetect_detector, lingua_detector, stanza_detector
+from xtranslator.detectors import simplemma_detector, langid_detector, fasttext_detector, google_detector, langdetect_detector, lingua_detector, stanza_detector, glotlid
 
 
 class TestDetectors(unittest.TestCase):
@@ -38,6 +38,10 @@ class TestDetectors(unittest.TestCase):
 
     def test_stanza_detector(self):
         detector = stanza_detector.StanzaDetector()
+        self.assertEqual(detector.detect('Hello, world!'), 'en')
+        
+    def test_glotlid_detector(self):
+        detector = glotlid.GlotLIDDetector()
         self.assertEqual(detector.detect('Hello, world!'), 'en')
         
 if __name__ == '__main__':

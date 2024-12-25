@@ -18,11 +18,13 @@ requirements = [
     "boto3",
     "deepl",
     "sentencepiece",
+    "fasttext",
+    "huggingface_hub",
 ]
 
 setup(
     name="xtranslator",
-    version="0.0.1",
+    version="0.0.2",
     url="https://github.com/ivanvykopal/xtranslator.git",
     author="Ivan Vykopal",
     author_email="ivan.vykopal@gmail.com",

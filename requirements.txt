@@ -15,3 +15,5 @@ numpy
 boto3
 deepl
 sentencepiece
+fasttext
+huggingface_hub
