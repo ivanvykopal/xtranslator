@@ -25,3 +25,16 @@ def translate(text: Union[str, List[str]], dest: str, translator: str, model_nam
     
     return translator.translate(text, dest)
         
+def load_translator(translator: str, model_name: str, detector: str):
+    translators = {
+        'amazon': amazon_translator.AmazonTranslator,
+        'google': google_translator.GoogleTranslator,
+        'deepl': deepl_translator.DeepLTranslator,
+        'm2m100': m2m100_translator.M2M100Translator,
+        'madlad': madlad_translator.MADLADTranslator,
+        'mbart': mbart_translator.MBARTTranslator,
+        'nllb': nllb_translator.NLLBTranslator,
+        'seamless': seamless_translator.SeamlessTranslator,
+    }
+    
+    return translators[translator](model_name, detector)

@@ -1,14 +1,12 @@
-# write unit tests for all detectors
-
 import unittest
 
 from xtranslator.detectors import simplemma_detector, langid_detector, fasttext_detector, google_detector, langdetect_detector, lingua_detector, stanza_detector
 
 
 class TestDetectors(unittest.TestCase):
-    def test_cld3_detector(self):
-        detector = cld3_detector.CLD3Detector()
-        self.assertEqual(detector.detect('Hello, world!'), 'en')
+    # def test_cld3_detector(self):
+    #     detector = cld3_detector.CLD3Detector()
+    #     self.assertEqual(detector.detect('Hello, world!'), 'en')
 
     def test_langid_detector(self):
         detector = langid_detector.LangidDetector()
@@ -18,9 +16,9 @@ class TestDetectors(unittest.TestCase):
         detector = simplemma_detector.SimpleMMADetector()
         self.assertEqual(detector.detect('Hello, world!'), 'en')
 
-    def test_fastspell_detector(self):
-        detector = fastspell_detector.FastSpellDetector()
-        self.assertEqual(detector.detect('Hello, world!'), 'en')
+    # def test_fastspell_detector(self):
+    #     detector = fastspell_detector.FastSpellDetector()
+    #     self.assertEqual(detector.detect('Hello, world!'), 'en')
 
     def test_fasttext_detector(self):
         detector = fasttext_detector.FastTextDetector()

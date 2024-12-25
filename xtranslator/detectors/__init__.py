@@ -8,6 +8,12 @@ import xtranslator.detectors.lingua_detector as lingua_detector
 import xtranslator.detectors.simplemma_detector as simplemma_detector
 import xtranslator.detectors.stanza_detector as stanza_detector
 
+def detect(text: str, detector: str) -> str:
+    detector = load_detector(detector)
+    
+    return detector.detect(text)
+
+
 def load_detector(provider: str):
     # if provider == 'cld3':
     #     return cld3_detector.CLD3Detector()
