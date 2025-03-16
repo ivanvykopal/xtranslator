@@ -24,7 +24,7 @@ requirements = [
 
 setup(
     name="xtranslator",
-    version="0.0.2",
+    version="0.1.0",
     url="https://github.com/ivanvykopal/xtranslator.git",
     author="Ivan Vykopal",
     author_email="ivan.vykopal@gmail.com",
