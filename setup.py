@@ -10,6 +10,7 @@ requirements = [
     "stanza",
     "fasttext-langdetect",
     "simplemma",
+    "googletrans",
     "py-googletrans",
     "transformers",
     "torch",
@@ -20,6 +21,7 @@ requirements = [
     "sentencepiece",
     "fasttext",
     "huggingface_hub",
+    "argostranslate",
 ]
 
 setup(
