@@ -75,6 +75,27 @@ class TestTranslators(unittest.TestCase):
         
         self.assertEqual(translate(text, dest, translator, model_name, detector), 'Dobrý deň, svet!')
         
+    def test_libre_translator(self):
+        text = 'Hello, world!'
+        dest = 'sk'
+        translator = 'libre'
+        model_name = 'libre'
+        detector = 'fasttext'
+        
+        result = translate(text, dest, translator, model_name, detector)
+        self.assertEqual(result, 'Ahoj, svet!')
+        
+    def test_argostranslate_translator(self):
+        text = 'Hello, world!'
+        dest = 'sk'
+        translator = 'argostranslate'
+        model_name = 'argostranslate'
+        detector = 'fasttext'
+        
+        result = translate(text, dest, translator, model_name, detector)
+        print(result)
+        self.assertEqual(result, 'Ahoj, svet!')
+        
 if __name__ == '__main__':
     unittest.main()
         

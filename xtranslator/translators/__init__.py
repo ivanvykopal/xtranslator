@@ -6,6 +6,8 @@ import xtranslator.translators.madlad_translator as madlad_translator
 import xtranslator.translators.mbart_translator as mbart_translator
 import xtranslator.translators.nllb_translator as nllb_translator
 import xtranslator.translators.seamless_translator as seamless_translator
+import xtranslator.translators.libre_translate as libre_translator
+import xtranslator.translators.argostranslate as argostranslate_translator
 from typing import Union, List
 
 
@@ -19,6 +21,8 @@ def translate(text: Union[str, List[str]], dest: str, translator: str, model_nam
         'mbart': mbart_translator.MBARTTranslator,
         'nllb': nllb_translator.NLLBTranslator,
         'seamless': seamless_translator.SeamlessTranslator,
+        'libre': libre_translator.LibreTranslateTranslator,
+        'argostranslate': argostranslate_translator.ArgostranslateTranslator,
     }
     
     translator = translators[translator](model_name, detector)
@@ -35,6 +39,8 @@ def load_translator(translator: str, model_name: str, detector: str):
         'mbart': mbart_translator.MBARTTranslator,
         'nllb': nllb_translator.NLLBTranslator,
         'seamless': seamless_translator.SeamlessTranslator,
+        'libre': libre_translator.LibreTranslateTranslator,
+        'argostranslate': argostranslate_translator.ArgostranslateTranslator,
     }
     
     return translators[translator](model_name, detector)

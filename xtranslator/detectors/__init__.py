@@ -7,6 +7,7 @@ import xtranslator.detectors.langid_detector as langid_detector
 import xtranslator.detectors.lingua_detector as lingua_detector
 import xtranslator.detectors.simplemma_detector as simplemma_detector
 import xtranslator.detectors.stanza_detector as stanza_detector
+import xtranslator.detectors.libre_translate as libre_detector
 
 def detect(text: str, detector: str) -> str:
     detector = load_detector(detector)
@@ -33,5 +34,7 @@ def load_detector(provider: str):
         return simplemma_detector.SimpleMMADetector()
     elif provider == 'stanza':
         return stanza_detector.StanzaDetector()
+    elif provider == 'libre':
+        return libre_detector.LibreTranslateDetector()
     else:
         raise ValueError(f'{provider} is not available. Please choose from facebook, google, or microsoft')
