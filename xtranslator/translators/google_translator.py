@@ -11,21 +11,43 @@ class GoogleTranslator(Translator):
         
         self.translator = google_translator()
         self.detector = None
-        
+    
+    async def _translate_google_bulk(
+        self,
+        translator,
+        texts: List[str],
+        dest: str,
+    ):
+        results = [None] * len(texts)
+        to_translate = []
+        indices = []
+
+        for i, text in enumerate(texts):
+            to_translate.append(text)
+            indices.append(i)
+
+        if to_translate:
+            translated = await translator.translate(to_translate, dest=dest)
+            translated_texts = [t.text for t in translated]
+
+            for idx, text, translated_text in zip(indices, to_translate, translated_texts):
+                results[idx] = translated_text
+
+        return results
+    
     def translate(self, text: Union[str, List[str]], dest: str) -> Union[str, List[str]]:
         is_list = isinstance(text, list)
         
         if not is_list:
-            text = [text]
-
-        translated = []
         
-        for t in tqdm(text, desc='Translating', total=len(text)):
             output = asyncio.run(self.translator.translate(t, dest=dest))
             translated_text = output.text
-            translated.append(translated_text)
-        
-        if is_list:
-            return translated
+            return translated_text
         else:
-            return translated[0]
+            return asyncio.run(
+                self._translate_google_bulk(
+                    self.translator,
+                    text,
+                    dest,
+                )
+            )
