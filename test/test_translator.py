@@ -91,11 +91,21 @@ class TestTranslators(unittest.TestCase):
         translator = 'argostranslate'
         model_name = 'argostranslate'
         detector = 'fasttext'
-        
+
         result = translate(text, dest, translator, model_name, detector)
         print(result)
         self.assertEqual(result, 'Ahoj, svet!')
-        
+
+    def test_translategemma_translator(self):
+        text = 'Hello, world!'
+        dest = 'sk'
+        translator = 'translategemma'
+        model_name = 'google/translategemma-4b-it'
+        detector = 'fasttext'
+
+        result = translate(text, dest, translator, model_name, detector)
+        self.assertEqual(result, 'Ahoj, svet!')
+
 if __name__ == '__main__':
     unittest.main()
         

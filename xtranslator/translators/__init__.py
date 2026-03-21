@@ -8,6 +8,7 @@ import xtranslator.translators.nllb_translator as nllb_translator
 import xtranslator.translators.seamless_translator as seamless_translator
 import xtranslator.translators.libre_translate as libre_translator
 import xtranslator.translators.argostranslate as argostranslate_translator
+import xtranslator.translators.translategemma_translator as translategemma_translator
 from typing import Union, List
 
 
@@ -23,6 +24,7 @@ def translate(text: Union[str, List[str]], dest: str, translator: str, model_nam
         'seamless': seamless_translator.SeamlessTranslator,
         'libre': libre_translator.LibreTranslateTranslator,
         'argostranslate': argostranslate_translator.ArgostranslateTranslator,
+        'translategemma': translategemma_translator.TranslateGemmaTranslator,
     }
     
     translator = translators[translator](model_name, detector)
@@ -41,6 +43,7 @@ def load_translator(translator: str, model_name: str, detector: str):
         'seamless': seamless_translator.SeamlessTranslator,
         'libre': libre_translator.LibreTranslateTranslator,
         'argostranslate': argostranslate_translator.ArgostranslateTranslator,
+        'translategemma': translategemma_translator.TranslateGemmaTranslator,
     }
     
     return translators[translator](model_name, detector)

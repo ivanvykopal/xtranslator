@@ -22,6 +22,9 @@ requirements = [
     "fasttext",
     "huggingface_hub",
     "argostranslate",
+    "scipy",
+    "pillow",
+    "accelerate",
 ]
 
 setup(
